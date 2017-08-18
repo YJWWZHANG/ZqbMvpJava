@@ -5,11 +5,11 @@ import com.zqb.mvpjava.base.contract.main.MainContract;
 import com.orhanobut.logger.Logger;
 
 
-import javax.inject.Inject;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
-/**
- * Created by IISFREE on 2017/5/16.
- */
+import javax.inject.Inject;
 
 public class MainPresenter extends RxPresenter<MainContract.View> implements MainContract.Presenter{
 
@@ -22,5 +22,6 @@ public class MainPresenter extends RxPresenter<MainContract.View> implements Mai
     public void presenterTest() {
         Logger.w("presenterTest");
         mView.viewTest();
+        EventBus.getDefault().postSticky("2333");
     }
 }

@@ -4,11 +4,10 @@ import com.zqb.mvpjava.base.RxPresenter;
 import com.zqb.mvpjava.base.contract.undefinition.UndefinitionContract;
 import com.orhanobut.logger.Logger;
 
-import javax.inject.Inject;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
-/**
- * Created by IISFREE on 2017/5/26.
- */
+import javax.inject.Inject;
 
 public class UndefinitionPresenter extends RxPresenter<UndefinitionContract.View> implements UndefinitionContract.Presenter{
 

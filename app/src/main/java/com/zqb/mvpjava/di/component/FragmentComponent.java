@@ -5,10 +5,6 @@ import com.zqb.mvpjava.ui.undefinition.fragment.UndefinitionFragment;
 
 import dagger.Component;
 
-/**
- * Created by IISFREE on 2017/5/26.
- */
-
 @Component(modules = FragmentModule.class)
 public interface FragmentComponent {
 

@@ -11,10 +11,6 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-/**
- * Created by IISFREE on 2017/5/16.
- */
-
 public abstract class SimpleFragment extends android.support.v4.app.Fragment {
 
     protected Context mContext;

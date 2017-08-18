@@ -5,8 +5,8 @@ import android.app.Application;
 import android.os.Process;
 
 import com.blankj.utilcode.util.Utils;
+import com.orhanobut.logger.AndroidLogAdapter;
 import com.zqb.mvpjava.R;
-import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
@@ -14,10 +14,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
-
-/**
- * Created by IISFREE on 2017/5/16.
- */
 
 public class App extends Application {
 
@@ -29,13 +25,13 @@ public class App extends Application {
         super.onCreate();
         mApp = this;
         Utils.init(this);
-        Logger.init().logLevel(LogLevel.FULL);
+        Logger.addLogAdapter(new AndroidLogAdapter(){
+            @Override
+            public boolean isLoggable(int priority, String tag) {
+                return true;
+            }
+        });
         AutoLayoutConifg.getInstance().useDeviceSize();
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/rouyuan.TTF")
-                .setFontAttrId(R.attr.fontPath)
-                .build()
-        );
     }
 
     public static App getInstance(){

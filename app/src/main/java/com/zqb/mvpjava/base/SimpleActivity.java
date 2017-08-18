@@ -11,13 +11,13 @@ import android.view.WindowManager;
 
 import com.zqb.mvpjava.app.App;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
-/**
- * Created by IISFREE on 2017/5/16.
- */
 
 public abstract class SimpleActivity extends AppCompatActivity {
 
@@ -40,6 +40,7 @@ public abstract class SimpleActivity extends AppCompatActivity {
         mContext = this;
         onViewCreated();
         App.getInstance().AddActivity(this);
+        EventBus.getDefault().register(this);
         initEventAndData();
     }
 
@@ -47,6 +48,7 @@ public abstract class SimpleActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         mUnbinder.unbind();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -55,6 +57,11 @@ public abstract class SimpleActivity extends AppCompatActivity {
     }
 
     protected void onViewCreated() {
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEventNothing(String s){
 
     }
 

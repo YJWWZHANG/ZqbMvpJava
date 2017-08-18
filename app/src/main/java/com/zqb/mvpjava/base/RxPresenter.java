@@ -1,9 +1,5 @@
 package com.zqb.mvpjava.base;
 
-/**
- * Created by IISFREE on 2017/5/16.
- */
-
 public class RxPresenter<T extends BaseView> implements BasePresenter<T> {
 
     protected T mView;

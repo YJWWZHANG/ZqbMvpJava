@@ -17,7 +17,6 @@
 
         <activity
             android:name="com.zqb.mvpjava.ui.main.activity.MainActivity"
-            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -6,10 +6,6 @@ import com.zqb.mvpjava.di.module.ActivityModule;
 
 import javax.inject.Inject;
 
-/**
- * Created by IISFREE on 2017/5/16.
- */
-
 public abstract class BaseActivity<T extends BasePresenter> extends SimpleActivity implements BaseView {
 
     @Inject

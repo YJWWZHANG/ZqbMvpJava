@@ -8,10 +8,6 @@ import com.zqb.mvpjava.ui.main.activity.MainActivity;
 
 import dagger.Component;
 
-/**
- * Created by IISFREE on 2017/5/16.
- */
-
 @ActivityScope
 @Component(modules = ActivityModule.class)
 public interface ActivityComponent {

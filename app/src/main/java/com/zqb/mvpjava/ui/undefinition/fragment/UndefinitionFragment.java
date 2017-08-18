@@ -9,10 +9,6 @@ import com.zqb.mvpjava.presenter.undefinition.UndefinitionPresenter;
 import com.labo.kaji.fragmentanimations.CubeAnimation;
 import com.orhanobut.logger.Logger;
 
-/**
- * Created by IISFREE on 2017/5/26.
- */
-
 public class UndefinitionFragment extends BaseFragment<UndefinitionPresenter> implements UndefinitionContract.View {
 
     @Override

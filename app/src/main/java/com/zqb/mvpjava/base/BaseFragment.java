@@ -9,10 +9,6 @@ import com.zqb.mvpjava.di.component.FragmentComponent;
 
 import javax.inject.Inject;
 
-/**
- * Created by IISFREE on 2017/5/26.
- */
-
 public abstract class BaseFragment<T extends BasePresenter> extends SimpleFragment implements BaseView{
 
     @Inject

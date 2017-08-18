@@ -14,9 +14,13 @@
 
     <Button
         android:id="@+id/btn_exit"
-        android:layout_width="100px"
-        android:layout_height="100px"
-        android:background="@android:color/transparent"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试"
+        android:textSize="30sp"
+        android:textColor="@color/material_white"
+        android:background="@android:color/black"
+        fontPath="fonts/huawenxinkai.TTF"/>
 
     <View
         android:layout_width="match_parent"

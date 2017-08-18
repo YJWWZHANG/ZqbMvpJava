@@ -11,10 +11,6 @@ import android.view.animation.Animation;
 import com.zqb.mvpjava.R;
 import com.labo.kaji.fragmentanimations.CubeAnimation;
 
-/**
- * Created by IISFREE on 2017/5/26.
- */
-
 public class UndefinitionFragment1 extends Fragment{
 
     @Nullable

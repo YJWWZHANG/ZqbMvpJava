@@ -1,5 +1,9 @@
 package com.zqb.mvpjava.ui.main.activity;
 
+import android.view.View;
+
+import com.orhanobut.logger.Logger;
+import com.zhy.autolayout.AutoFrameLayout;
 import com.zqb.mvpjava.R;
 import com.zqb.mvpjava.app.App;
 import com.zqb.mvpjava.base.BaseActivity;
@@ -7,11 +11,9 @@ import com.zqb.mvpjava.base.contract.main.MainContract;
 import com.zqb.mvpjava.presenter.main.MainPresenter;
 import com.zqb.mvpjava.ui.undefinition.fragment.UndefinitionFragment;
 import com.zqb.mvpjava.ui.undefinition.fragment.UndefinitionFragment1;
-import com.orhanobut.logger.Logger;
-import com.zhy.autolayout.AutoFrameLayout;
 
 import butterknife.BindView;
-import butterknife.OnLongClick;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
 
@@ -49,21 +51,22 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         Logger.w("viewTest");
     }
 
-    @OnLongClick(R.id.btn_exit)
-    public boolean onViewLongClicked() {
-
-        if (isOne){
-            isOne = false;
-//            mFlContentFragment.removeAllViews();
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fl_content_fragment, mUndefinitionFragment, "a").commit();
-        } else {
-            isOne = true;
-//            mFlContentFragment.removeAllViews();
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fl_content_fragment, mUndefinitionFragment1, "b").commit();
-
+    @OnClick({R.id.btn_exit})
+    public void onViewLongClicked(View view) {
+        switch (view.getId()){
+            case R.id.btn_exit:
+                if (isOne){
+                    isOne = false;
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fl_content_fragment, mUndefinitionFragment, "a").commit();
+                } else {
+                    isOne = true;
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fl_content_fragment, mUndefinitionFragment1, "b").commit();
+                }
+                break;
+            default:
+                break;
         }
-        return true;
     }
 }
