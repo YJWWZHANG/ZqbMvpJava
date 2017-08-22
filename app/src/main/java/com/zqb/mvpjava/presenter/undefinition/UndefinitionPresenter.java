@@ -17,7 +17,7 @@ public class UndefinitionPresenter extends RxPresenter<UndefinitionContract.View
 
     @Override
     public void presenterTest() {
-        Logger.w("presenterTest");
+        Logger.w("getGitHubUserInfo");
         mView.viewTest();
     }
 }

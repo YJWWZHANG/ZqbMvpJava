@@ -1,7 +1,7 @@
 package com.zqb.mvpjava.model.http;
 
 
-import com.zqb.mvpjava.model.bean.GitHubAuthorBean;
+import com.zqb.mvpjava.model.bean.GitHubUserInfoBean;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
@@ -11,6 +11,7 @@ public interface GitHubApi {
 
     String GIT_HUB_HOST = "https://api.github.com/";
 
-    @GET("https://api.github.com/users/{author}")
-    Flowable<GitHubAuthorBean> getAuthorInfo(@Path("author") String author);
+    @GET("users/{author}")
+    Flowable<GitHubUserInfoBean> getAuthorInfo(@Path("author") String author);
+
 }

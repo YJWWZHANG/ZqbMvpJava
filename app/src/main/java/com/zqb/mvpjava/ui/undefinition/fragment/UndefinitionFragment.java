@@ -23,12 +23,12 @@ public class UndefinitionFragment extends BaseFragment<UndefinitionPresenter> im
 
     @Override
     protected void initEventAndData() {
-//        mPresenter.presenterTest();
+//        mPresenter.getGitHubUserInfo();
     }
 
     @Override
     public void viewTest() {
-        Logger.w("viewTest");
+        Logger.w("showGitHubUserInfo");
     }
 
     @Override

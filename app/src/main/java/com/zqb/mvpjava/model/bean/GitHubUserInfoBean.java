@@ -1,7 +1,7 @@
 package com.zqb.mvpjava.model.bean;
 
 
-public class GitHubAuthorBean {
+public class GitHubUserInfoBean {
 
     /**
      * login : YJWWZHANG
@@ -69,7 +69,7 @@ public class GitHubAuthorBean {
 
     @Override
     public String toString() {
-        return "GitHubAuthorBean{" +
+        return "GitHubUserInfoBean{" +
                 "login='" + login + '\'' +
                 ", id=" + id +
                 ", avatar_url='" + avatar_url + '\'' +
