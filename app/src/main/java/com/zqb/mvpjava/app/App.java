@@ -6,14 +6,11 @@ import android.os.Process;
 
 import com.blankj.utilcode.util.Utils;
 import com.orhanobut.logger.AndroidLogAdapter;
-import com.zqb.mvpjava.R;
 import com.orhanobut.logger.Logger;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class App extends Application {
 
