@@ -18,8 +18,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.zqb.mvpjava.ui.main.activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar.FullScreen">
+            android:name="com.zqb.mvpjava.ui.main.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

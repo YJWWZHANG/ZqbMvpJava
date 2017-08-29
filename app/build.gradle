@@ -46,6 +46,8 @@ dependencies {
     compile 'com.orhanobut:logger:2.1.1'
     compile 'com.sdsmdg.tastytoast:tastytoast:0.1.1'
     compile 'uk.co.chrisjenx:calligraphy:2.3.0'
+    compile 'com.github.jokermonn:permissions4m:2.0.0-lib'
+    annotationProcessor 'com.github.jokermonn:permissions4m:2.0.0-processor'
     /*字体设置*/
     compile('com.thoughtworks.xstream:xstream:1.4.10-java7') {       /*xml解析*/
         exclude module: 'xmlpull'

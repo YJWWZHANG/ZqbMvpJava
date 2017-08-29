@@ -1,9 +1,14 @@
 package com.zqb.mvpjava.ui.main.activity;
 
+import android.Manifest;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.joker.annotation.PermissionsDenied;
+import com.joker.annotation.PermissionsGranted;
+import com.joker.api.Permissions4M;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Progress;
 import com.orhanobut.logger.Logger;
@@ -15,6 +20,7 @@ import com.vector.update_app.utils.AppUpdateUtils;
 import com.zhy.autolayout.AutoFrameLayout;
 import com.zqb.mvpjava.R;
 import com.zqb.mvpjava.app.App;
+import com.zqb.mvpjava.app.Constants;
 import com.zqb.mvpjava.base.BaseActivity;
 import com.zqb.mvpjava.base.contract.main.MainContract;
 import com.zqb.mvpjava.model.bean.GitHubUserInfoBean;
@@ -76,6 +82,12 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 //            }
 //        });
 
+        Permissions4M.get(MainActivity.this)
+                .requestForce(true)
+                .requestPageType(Permissions4M.PageType.MANAGER_PAGE)
+                .requestCode(Constants.READ_EXTERNAL_STORAGE_CODE)
+                .requestPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .request();
         checkVersionUpdate();
     }
 
@@ -98,6 +110,39 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 break;
         }
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[]
+            grantResults) {
+        Permissions4M.onRequestPermissionsResult(MainActivity.this, requestCode, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @PermissionsGranted({Constants.READ_EXTERNAL_STORAGE_CODE})
+    public void syncGranted(int code) {
+        switch (code) {
+            case Constants.READ_EXTERNAL_STORAGE_CODE:
+                ToastUtils.showShort("存储空间权限授权成功 in activity with annotation");
+                Log.d("TAG", "syncGranted:  储空间权限授权成功 in activity with annotation");
+                break;
+            default:
+                break;
+        }
+    }
+
+    @PermissionsDenied({Constants.READ_EXTERNAL_STORAGE_CODE})
+    public void syncDenied(int code) {
+        switch (code) {
+            case Constants.READ_EXTERNAL_STORAGE_CODE:
+                ToastUtils.showShort("存储空间权限授权失败 in activity with annotation");
+                Log.d("TAG", "syncDenied:  存储空间权限授权失败 in activity with annotation");
+                break;
+            default:
+                break;
+        }
+    }
+
+
 
     @Override
     public void showGitHubUserInfo(GitHubUserInfoBean gitHubUserInfoBean) {
