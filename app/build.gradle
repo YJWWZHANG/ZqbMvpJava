@@ -63,7 +63,6 @@ dependencies {
     }
     compile 'com.lzy.net:okgo:3.0.4'
     /*UI*/
-    compile 'com.zhy:autolayout:1.4.5'
     compile 'com.daimajia.androidanimations:library:2.3@aar'
     compile 'com.qianwen:update-app:3.3.3'
     /*Fragment转场动画*/

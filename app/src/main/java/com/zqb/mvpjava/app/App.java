@@ -7,7 +7,6 @@ import android.os.Process;
 import com.blankj.utilcode.util.Utils;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
-import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +27,9 @@ public class App extends Application {
                 return true;
             }
         });
+/*
         AutoLayoutConifg.getInstance().useDeviceSize();
+*/
     }
 
     public static App getInstance(){

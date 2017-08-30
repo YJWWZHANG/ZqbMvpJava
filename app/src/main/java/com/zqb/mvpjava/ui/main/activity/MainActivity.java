@@ -4,10 +4,12 @@ import android.Manifest;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.joker.annotation.PermissionsDenied;
 import com.joker.annotation.PermissionsGranted;
+import com.joker.annotation.PermissionsRationale;
 import com.joker.api.Permissions4M;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Progress;
@@ -17,7 +19,6 @@ import com.vector.update_app.UpdateAppBean;
 import com.vector.update_app.UpdateAppManager;
 import com.vector.update_app.UpdateCallback;
 import com.vector.update_app.utils.AppUpdateUtils;
-import com.zhy.autolayout.AutoFrameLayout;
 import com.zqb.mvpjava.R;
 import com.zqb.mvpjava.app.App;
 import com.zqb.mvpjava.app.Constants;
@@ -41,7 +42,7 @@ import butterknife.OnClick;
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
 
     @BindView(R.id.fl_content_fragment)
-    AutoFrameLayout mFlContentFragment;
+    FrameLayout mFlContentFragment;
     private UndefinitionFragment mUndefinitionFragment;
     private UndefinitionFragment1 mUndefinitionFragment1;
     private boolean isOne = true;
@@ -142,7 +143,17 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         }
     }
 
-
+    @PermissionsRationale({Constants.READ_EXTERNAL_STORAGE_CODE})
+    public void syncRationale(int code) {
+        switch (code) {
+            case Constants.READ_EXTERNAL_STORAGE_CODE:
+                ToastUtils.showShort("请开启存储空间权限 in activity with annotation");
+                Log.d("TAG", "syncRationale:  请开启存储空间权限 in activity with annotation");
+                break;
+            default:
+                break;
+        }
+    }
 
     @Override
     public void showGitHubUserInfo(GitHubUserInfoBean gitHubUserInfoBean) {
