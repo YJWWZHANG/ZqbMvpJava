@@ -261,12 +261,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 .build()
                 //检测是否有新版本
                 .checkNewApp(new UpdateCallback() {
-                    /**
-                     * 解析json,自定义协议
-                     *
-                     * @param json 服务器返回的json
-                     * @return UpdateAppBean
-                     */
                     @Override
                     protected UpdateAppBean parseJson(String json) {
                         UpdateAppBean updateAppBean = new UpdateAppBean();
